@@ -1,7 +1,8 @@
 const WIDTH = window.innerWidth;
-const HEIGHT = 250;
+const HEIGHT = window.innerHeight;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const canvas = document.getElementById("background");
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: false });
 renderer.setSize(WIDTH, HEIGHT);
 document.body.append(renderer.domElement);
 
@@ -36,7 +37,7 @@ scene.add(ball2);
 scene.add(ball3);
 
 ball2.position.x = 70;
-ball3.position.x = -70;
+ball3.position.x = -30;
 
 // const coneGeo = new THREE.ConeGeometry(8, 18, 16);
 // const coneMaterial = new THREE.MeshBasicMaterial({
