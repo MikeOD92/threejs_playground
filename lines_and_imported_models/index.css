@@ -1,5 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+/* font-family: 'Ubuntu', sans-serif; */
 html,
 body,
 * {
   margin: 0;
+}
+#background {
+  position: fixed;
+  z-index: -1;
+}
+#info {
+  position: absolute;
+  top: 70vh;
+  left: 5vw;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  z-index: 1;
 }

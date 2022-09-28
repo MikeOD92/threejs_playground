@@ -1,7 +1,8 @@
 // import * as THREE from "three";
 import { GLTFLoader } from "./GLTFLoader.js";
 
-const renderer = new THREE.WebGLRenderer();
+const canvas = document.getElementById("background");
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: false });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.append(renderer.domElement);
 
