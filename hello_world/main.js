@@ -48,7 +48,7 @@ torus.rotation.set(0.5, 0, 0);
 
 ////
 const dodecahedronGeometry = new THREE.DodecahedronGeometry(7);
-// const lambertMaterial = new THREE.MeshLambertMaterial({ color: 0xeaeff2 });
+const lambertMaterial = new THREE.MeshLambertMaterial({ color: 0xeaeff2 });
 const loader = new THREE.TextureLoader();
 const dodecahedron = new THREE.Mesh(dodecahedronGeometry, lambertMaterial);
 dodecahedron.position.x = 25;
