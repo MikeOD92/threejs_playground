@@ -1,3 +1,6 @@
-/three.min.js
+threejs_util/
 .DS_*
 node_modules
+three.js
+three.module.js
+GLTFLoader.js

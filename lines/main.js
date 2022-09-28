@@ -1,4 +1,5 @@
 // import * as THREE from "three";
+import { GLTFLoader } from "./GLTFLoader.js";
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -75,17 +76,36 @@ pointsRight.push(new THREE.Vector2(26, -10));
 const rightGeo = new THREE.BufferGeometry().setFromPoints(pointsRight);
 const right = new THREE.Line(rightGeo, material);
 
+scene.add(right);
+/// imported 3d Text
+
+let modelLoader = new GLTFLoader();
+
+let txt;
+
+modelLoader.load("./manjrotxt2.glb", function (gltf) {
+  txt = gltf.scene;
+  txt.position.z = 90;
+  txt.position.y = 0;
+  txt.position.x = -4;
+  scene.add(txt);
+});
+
+const light = new THREE.HemisphereLight(0xffffff, 0xffffff, 10);
+scene.add(light);
+
+// scene.background = new THREE.Color(0xffffff);
 /////////////// render and animation
 let t = 1;
-scene.add(right);
+
 const render = () => {
   requestAnimationFrame(render);
   //   right.rotate.y += 0.01;
-  right.rotation.y += 0.02 * Math.sin(t * 2);
-  mid.rotation.y += 0.02 * Math.sin(t * 2);
-  lowLeft.rotation.y += 0.02 * Math.sin(t * 2);
-  upLeft.rotation.y += 0.02 * Math.sin(t * 2);
-
+  right.rotation.y += 0.01 * Math.sin(t * 2);
+  mid.rotation.y += 0.01 * Math.sin(t * 2);
+  lowLeft.rotation.y += 0.01 * Math.sin(t * 2);
+  upLeft.rotation.y += 0.01 * Math.sin(t * 2);
+  txt.rotation.y += 0.01 * Math.sin(t * 2);
   renderer.render(scene, camera);
 };
 render();
